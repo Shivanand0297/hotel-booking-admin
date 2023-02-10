@@ -18,7 +18,7 @@ const DataTable = ({column, item}) => {
   // storing fetch data in list
   const [list, setList] = useState([])
 
-  const { data } = useFetch(`/api/${v}/${path}`)  //automaticaly detect with page to fetch
+  const { data } = useFetch(`${host}/api/${v}/${path}`)  //automaticaly detect with page to fetch
 
   // to update the list as data changes
   useEffect(()=>{

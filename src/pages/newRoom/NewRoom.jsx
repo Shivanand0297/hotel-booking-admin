@@ -21,7 +21,7 @@ const NewRoom = () => {
   const [roomNo, setRoomNo] = useState([])
 
   // fetching all the rooms to select
-  const { data, loading } = useFetch(`/api/${v}/hotels`);
+  const { data, loading } = useFetch(`${host}/api/${v}/hotels`);
 
   const handleChange = (e) => {
     setInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));

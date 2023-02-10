@@ -24,7 +24,7 @@ const NewHotel = () => {
   };
 
   // fetching all the rooms to select
-  const { data, loading } = useFetch(`/api/${v}/rooms/`);
+  const { data, loading } = useFetch(`${host}/api/${v}/rooms/`);
 
   const handleSelect = (e) => {
     // e.target.selectedOptions will give html collections, so making array out of it
