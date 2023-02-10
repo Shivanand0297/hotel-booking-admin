@@ -36,7 +36,7 @@ const Login = () => {
 
               dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details }) 
               
-            //   localStorage.setItem("user", JSON.stringify(res.data.details))
+              localStorage.setItem("user", JSON.stringify(res.data.details))
               
               toast(res.data.message, {
                 position: "bottom-center",

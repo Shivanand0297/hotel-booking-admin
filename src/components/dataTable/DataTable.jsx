@@ -3,7 +3,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import useFetch from "../../hooks/useFetch";
-import { v } from "../../config/config";
+import { host, v } from "../../config/config";
 import axios from "axios";
 import { toast } from "react-toastify";
 
@@ -29,7 +29,7 @@ const DataTable = ({column, item}) => {
   const handleDelete = async (id) =>{
 
       if(path === "rooms"){
-        const {data} = await axios.get(`/api/${v}/hotels`, {credentials: "include"})
+        const {data} = await axios.get(`${host}/api/${v}/hotels`, {credentials: "include"})
 
         let hotelId = []
 
@@ -46,7 +46,7 @@ const DataTable = ({column, item}) => {
       try{
           
           await Promise.all(hotelId.map(async hotel_id=>{
-            await axios.delete(`/api/${v}/rooms/${id}/${hotel_id}`, {credentials: "include"})
+            await axios.delete(`${host}/api/${v}/rooms/${id}/${hotel_id}`, {credentials: "include"})
 
           }))
           console.log(list)
@@ -58,7 +58,7 @@ const DataTable = ({column, item}) => {
       }
 
       try{
-        const res = await axios.delete(`/api/${v}/${path}/${id}`) //deleting from backend
+        const res = await axios.delete(`${host}/api/${v}/${path}/${id}`) //deleting from backend
         setList(list.filter(item=>(item._id !== id))) 
         toast(res.data, {
           type: "success",
